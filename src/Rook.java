@@ -1,6 +1,6 @@
-public class Bishop extends ChessPiece {
+public class Rook extends ChessPiece {
 
-    public Bishop(String color) {
+    public Rook(String color) {
         super(color);
     }
 
@@ -16,12 +16,12 @@ public class Bishop extends ChessPiece {
             return false;
         }
 
-        if (toColumn - column == 0 && toLine - line == 0) {
+        if ((toColumn - column == 0) && (toLine - line == 0)) {
             System.out.println("You must change position of your chessPiece");
             return false;
         }
 
-        if (Math.abs(toColumn - column) == Math.abs(toLine - line)) {
+        if (((toColumn - column != 0) && (toLine - line == 0)) || ((toColumn - column == 0) && (toLine - line != 0))) {
             return true;
         }
 
@@ -30,6 +30,6 @@ public class Bishop extends ChessPiece {
 
     @Override
     public String getSymbol() {
-        return "B";
+        return "R";
     }
 }
