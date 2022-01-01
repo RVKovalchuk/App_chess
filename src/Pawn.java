@@ -12,12 +12,10 @@ public class Pawn extends ChessPiece {
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         if (toColumn - column != 0) {
-            System.out.println("Pawn can't do it");
             return false;
         }
 
         if (toColumn > 7 || toLine > 7 || toColumn < 0 || toLine < 0) {
-            System.out.println("You can't go outside of chessBoard");
             return false;
         }
 
