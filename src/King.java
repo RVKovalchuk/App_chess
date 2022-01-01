@@ -13,9 +13,10 @@ public class King extends ChessPiece {
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         if (toColumn <= 7 && toLine <= 7 && toColumn >= 0 && toLine >= 0) {
             if (toColumn - column != 0 || toLine - line != 0) {
-                if ((toColumn - column == 0 || Math.abs(toColumn - column) == 1) && (toLine - line == 0 ||
-                        Math.abs(toLine - line) == 1)) {
-                    return true;
+                if (!chessBoard.board[toLine][toColumn].getColor().equals(this.color) ||
+                        chessBoard.board[toLine][toColumn] == null) {
+                    return (toColumn - column == 0 || Math.abs(toColumn - column) == 1) && (toLine - line == 0 ||
+                            Math.abs(toLine - line) == 1 && !isUnderAttack(chessBoard, toLine, toColumn));
                 }
             }
         }

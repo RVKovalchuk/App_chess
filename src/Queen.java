@@ -14,8 +14,11 @@ public class Queen extends ChessPiece {
 
         if (toColumn <= 7 && toLine <= 7 && toColumn >= 0 && toLine >= 0) {
             if (toColumn - column != 0 || toLine - line != 0) {
-                return ((toColumn - column != 0) && (toLine - line == 0)) || ((toColumn - column == 0) &&
-                        (toLine - line != 0)) || (Math.abs(toColumn - column) == Math.abs(toLine - line));
+                if (!chessBoard.board[toLine][toColumn].getColor().equals(this.color) ||
+                        chessBoard.board[toLine][toColumn] == null) {
+                    return ((toColumn - column != 0) && (toLine - line == 0)) || ((toColumn - column == 0) &&
+                            (toLine - line != 0)) || (Math.abs(toColumn - column) == Math.abs(toLine - line));
+                }
             }
         }
         return false;

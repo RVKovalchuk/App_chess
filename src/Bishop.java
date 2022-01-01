@@ -13,7 +13,10 @@ public class Bishop extends ChessPiece {
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         if (toColumn <= 7 && toLine <= 7 && toColumn >= 0 && toLine >= 0) {
             if (toColumn - column != 0 && toLine - line != 0) {
-                return Math.abs(toColumn - column) == Math.abs(toLine - line);
+                if (!chessBoard.board[toLine][toColumn].getColor().equals(this.color) ||
+                        chessBoard.board[toLine][toColumn] == null) {
+                    return Math.abs(toColumn - column) == Math.abs(toLine - line);
+                }
             }
         }
         return false;
