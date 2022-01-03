@@ -20,22 +20,24 @@ public class Bishop extends ChessPiece {
                     if (i == line) {
                         continue;
                     }
-                    if (chessBoard.board[i][column + Math.abs(i - line) * (toColumn - column) /
-                            Math.abs(toColumn - column)] == null) {
-                        return true;
+                    if (!(chessBoard.board[i][column + Math.abs(i - line) * (toColumn - column) /
+                            Math.abs(toColumn - column)] == null)) {
+                        return false;
                     }
                 }
+                return true;
             } else if (toLine < line) {
                 for (int i = line; i > toLine; i--) {
                     if (i == line) {
                         continue;
                     }
-                    if (chessBoard.board[i][column + Math.abs(i - line) * (toColumn - column) /
-                            Math.abs(toColumn - column)] == null) {
-                        return true;
+                    if (!(chessBoard.board[i][column + Math.abs(i - line) * (toColumn - column) /
+                            Math.abs(toColumn - column)] == null)) {
+                        return false;
                     }
                 }
             }
+            return true;
         }
         return false;
     }

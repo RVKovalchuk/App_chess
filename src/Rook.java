@@ -19,29 +19,41 @@ public class Rook extends ChessPiece {
                     if (i == column) {
                         continue;
                     }
-                    return chessBoard.board[line][i] == null;
+                    if (!(chessBoard.board[line][i] == null)) {
+                        return false;
+                    }
                 }
+                return true;
             } else if (toColumn - column == 0 && toLine - line > 0) {
                 for (int i = line; i < toLine; i++) {
                     if (i == line) {
                         continue;
                     }
-                    return chessBoard.board[i][column] == null;
+                    if (!(chessBoard.board[i][column] == null)) {
+                        return false;
+                    }
                 }
+                return true;
             } else if (toColumn - column < 0 && toLine - line == 0) {
                 for (int i = column; i > toColumn; i--) {
                     if (i == column) {
                         continue;
                     }
-                    return chessBoard.board[line][i] == null;
+                    if (!(chessBoard.board[line][i] == null)) {
+                        return false;
+                    }
                 }
+                return true;
             } else if (toColumn - column == 0 && toLine - line < 0) {
                 for (int i = line; i > toLine; i--) {
                     if (i == line) {
                         continue;
                     }
-                    return chessBoard.board[i][column] == null;
+                    if (!(chessBoard.board[i][column] == null)) {
+                        return false;
+                    }
                 }
+                return true;
             }
         }
         return false;

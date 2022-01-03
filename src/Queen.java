@@ -20,51 +20,66 @@ public class Queen extends ChessPiece {
                     if (i == column) {
                         continue;
                     }
-                    return chessBoard.board[line][i] == null;
+                    if (!(chessBoard.board[line][i] == null)) {
+                        return false;
+                    }
                 }
+                return true;
             } else if (toColumn - column == 0 && toLine - line > 0) {
                 for (int i = line; i < toLine; i++) {
                     if (i == line) {
                         continue;
                     }
-                    return chessBoard.board[i][column] == null;
+                    if (!(chessBoard.board[i][column] == null)) {
+                        return false;
+                    }
                 }
+                return true;
             } else if (toColumn - column < 0 && toLine - line == 0) {
                 for (int i = column; i > toColumn; i--) {
                     if (i == column) {
                         continue;
                     }
-                    return chessBoard.board[line][i] == null;
+                    if (!(chessBoard.board[line][i] == null)) {
+                        return false;
+                    }
                 }
+                return true;
             } else if (toColumn - column == 0 && toLine - line < 0) {
                 for (int i = line; i > toLine; i--) {
                     if (i == line) {
                         continue;
                     }
-                    return chessBoard.board[i][column] == null;
+                    if (!(chessBoard.board[i][column] == null)) {
+                        return false;
+                    }
                 }
+                return true;
             } else if ((Math.abs(toColumn - column) == Math.abs(toLine - line))) {
                 if (toLine > line) {
                     for (int i = line; i < toLine; i++) {
                         if (i == line) {
                             continue;
                         }
-                        if (chessBoard.board[i][column + Math.abs(i - line) * (toColumn - column) /
-                                Math.abs(toColumn - column)] == null) {
-                            return true;
+                        if (!(chessBoard.board[i][column + Math.abs(i - line) * (toColumn - column) /
+                                Math.abs(toColumn - column)] == null)) {
+                            return false;
                         }
                     }
+                    return true;
                 } else if (toLine < line) {
                     for (int i = line; i > toLine; i--) {
                         if (i == line) {
                             continue;
                         }
-                        if (chessBoard.board[i][column + Math.abs(i - line) * (toColumn - column) /
-                                Math.abs(toColumn - column)] == null) {
-                            return true;
+                        if (!(chessBoard.board[i][column + Math.abs(i - line) * (toColumn - column) /
+                                Math.abs(toColumn - column)] == null)) {
+                            return false;
                         }
                     }
+                    return true;
                 }
+                return false;
             }
         }
         return false;
